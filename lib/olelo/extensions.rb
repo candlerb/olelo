@@ -119,6 +119,12 @@ class Hash
       Hash.new(default).merge(self)
     end
 
+    def to_sym_hash
+      hash = {}
+      each_pair { |k,v| hash[k.to_sym] = v }
+      hash
+    end
+
     protected
 
     def convert_key(key)

@@ -57,10 +57,20 @@ module Olelo
       instance[key]
     end
 
-    def to_hash
+    def to_hash  # note: returns WithIndifferentAccess
       h = Hash.with_indifferent_access
       hash.each_pair do |k, v|
         h[k] = Config === v ? v.to_hash : v
+      end
+      h
+    end
+
+    # Return a plain hash with Symbols rather than Strings as keys
+
+    def to_sym_hash
+      h = {}
+      hash.each_pair do |k, v|
+        h[k.to_sym] = Config === v ? v.to_sym_hash : v
       end
       h
     end

@@ -3,7 +3,12 @@ require 'tilt'
 
 class TiltFilter < Filter
   def filter(context, content)
-    ::Tilt[name].new { content }.render
+    begin
+      opt = Olelo::Config['tilt_options'][name].to_sym_hash.merge(options.to_sym_hash)
+    rescue NameError
+      opt = options.to_sym_hash
+    end
+    ::Tilt[name].new(nil, 1, opt) { content }.render
   end
 end
 

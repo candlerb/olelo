@@ -51,6 +51,13 @@ math_renderer: mathjax
 # Uncomment this!
 #blahtex_directory: '/home/user/wiki/blahtex'
 
+# Options to pass to Tilt filters
+#tilt_options:
+#  markdown:
+#    tables: true
+#    fenced_code_blocks: true
+#    no_intra_emphasis: true
+
 # Selected theme
 theme: atlantis
 
