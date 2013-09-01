@@ -27,7 +27,7 @@ class S5 < XSLT
     themes.delete('default')
     themes.unshift(context.page.attributes['theme'] || 'default')
     super.merge(context.page.attributes['s5'] || {}).
-      merge('themes' => themes.join(' '), 's5_path' => build_path('_/assets/filter/s5'))
+      merge('themes' => themes.join(' '), 's5_path' => build_path('_/assets/filters/s5'))
   end
 end
 
